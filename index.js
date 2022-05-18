@@ -1,6 +1,6 @@
 var express = require("express");
 // import bodyParser from "body-parser";
-var current = new Date();
+var date = new Date();
 const app = express();
 
 // set view engine to EJS
@@ -10,7 +10,7 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 
 const myLogger = function (req, res, next) {
-  console.log("A new request received at " + current.toLocaleString());
+  console.log(`Request received at ${date.toLocaleString()}`);
 };
 
 app.get("/", (req, res) => {
