@@ -2,6 +2,7 @@ var express = require("express");
 // import bodyParser from "body-parser";
 var date = new Date();
 const app = express();
+const port = 8080;
 
 // set view engine to EJS
 app.set("view engine", "ejs");
@@ -18,16 +19,16 @@ app.get("/", (req, res) => {
   myLogger();
 });
 
-app.get("/contactUs", (req, res) => {
-  res.render("ContactUs");
-  myLogger();
-});
-
 app.get("/ourServices", (req, res) => {
   res.render("OurServices");
   myLogger();
 });
 
-app.listen(8080, () => {
-  console.log("listening on port 8080");
+app.get("/contactUs", (req, res) => {
+  res.render("ContactUs");
+  myLogger();
+});
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
 });
